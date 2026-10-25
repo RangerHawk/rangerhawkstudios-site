@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RangerHawk Studios</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="RangerHawk Studios — a solo indie studio building creative software. Free tools, no subscriptions, no DRM.">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+
+  <script>
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+  </script>
+
+  <style>
+    :root[data-theme='dark'] {
+      --bg: #0b0b0d;
+      --fg: #eaeaea;
+      --muted: #9a9a9a;
+      --accent: #4fd1c5;
+      --card: #161619;
+      --border: #2a2a2e;
+    }
+    :root[data-theme='light'] {
+      --bg: #ffffff;
+      --fg: #1a1a1a;
+      --muted: #5a5a5a;
+      --accent: #0f766e;
+      --card: #f6f6f7;
+      --border: #e3e3e5;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+    }
+    .theme-toggle {
+      position: fixed;
+      bottom: 1em;
+      right: 1em;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.5em 1em;
+      cursor: pointer;
+      color: inherit;
+      font-size: 0.9em;
+      z-index: 1000;
+    }
+    header {
+      text-align: center;
+      padding: 4em 1.5em 3em;
+      border-bottom: 1px solid var(--border);
+    }
+    header h1 {
+      margin: 0 0 0.3em;
+      font-size: 2.4em;
+      letter-spacing: 0.02em;
+    }
+    header p {
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto;
+      font-size: 1.05em;
+    }
+    main {
+      max-width: 760px;
+      margin: auto;
+      padding: 3em 1.5em;
+    }
+    h2 {
+      font-size: 1.1em;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      margin-bottom: 1em;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5em;
+    }
+    section { margin-bottom: 3em; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .product-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.3em 1.5em;
+      margin-bottom: 1em;
+    }
+    .product-card h3 {
+      margin: 0 0 0.3em;
+      font-size: 1.15em;
+      display: flex;
+      align-items: center;
+      gap: 0.6em;
+    }
+    .badge {
+      font-size: 0.7em;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      padding: 0.2em 0.6em;
+      border-radius: 4px;
+      background: var(--accent);
+      color: var(--bg);
+    }
+    .badge.soon {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+    .product-card p {
+      margin: 0.5em 0 0;
+      color: var(--muted);
+    }
+    .product-card .links {
+      margin-top: 0.8em;
+    }
+    .mention-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .mention-list li {
+      padding: 0.6em 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+    }
+    .mention-list li:last-child { border-bottom: none; }
+    .mention-list strong { color: var(--fg); }
+
+    footer {
+      text-align: center;
+      padding: 2.5em 1em 3em;
+      font-size: 0.85em;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()">Toggle theme</button>
+  <script>
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+    }
+  </script>
+
+  <header>
+    <h1>RangerHawk Studios</h1>
+    <p>A solo indie studio building creative software — no subscriptions, no DRM, buy once and own it forever.</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Free Software</h2>
+
+      <div class="product-card">
+        <h3>Gimpinator EX <span class="badge">Available now</span></h3>
+        <p>A GIMP 3.x plugin that generates AI images directly inside GIMP from a text prompt, using a free Stable Horde account or your own local image-generation server.</p>
+        <div class="links">
+          <a href="https://rangerhawk.github.io/plugins/index.html">Get Gimpinator EX &rarr;</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <h3>Mini Reader Solo <span class="badge soon">Coming soon</span></h3>
+        <p>A free, engine-capped text-to-speech reader — a standalone tool and an introduction to the -RHS- Conversations engine.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Also from RangerHawk Studios</h2>
+      <ul class="mention-list">
+        <li><strong>-RHS- Conversations</strong> — a dual-engine text-to-speech studio with voice design, script casting, phonetics, and transcription.</li>
+        <li><strong>-RHS- Constellation</strong> — a suite of portable, self-healing desktop tools for creative professionals, built around a local AI assistant.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    RangerHawk Studios — Mountain Home, Idaho
+  </footer>
+</body>
+</html>
